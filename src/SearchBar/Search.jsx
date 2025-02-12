@@ -1,5 +1,4 @@
 import React, { useState,useEffect } from 'react'
-
 import './Search.css'
 import {FaSearch} from 'react-icons/fa'
 import axios from 'axios'
@@ -18,7 +17,7 @@ let postalPincodefetch=(value)=>
      
         if(value.length!=0)
         {
-            axios.get(`https://api.postalpincode.in/pincode/${value}`)  // Use backticks for template literals
+            axios.get(`https://api.postalpincode.in/pincode/${value}`)
             .then(res => {
                 
               if(value.length==6)
@@ -36,14 +35,17 @@ let postalPincodefetch=(value)=>
                   else{
                     setFound(false)
                     setPostalArray(null)
+                    setCity('');
+                    setDistrict('')
+                    setSelected(false)
                   }
               }
                 
                 
                  }
                 
-                )  // Log only the response data
-            .catch(err => console.error("Axios error:", err));  // Handle errors
+                )  
+            .catch(err => console.error("Axios error:", err)); 
     
              
         }
