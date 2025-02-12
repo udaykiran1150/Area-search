@@ -11,38 +11,8 @@ const Search = () => {
     let [District,setDistrict]=useState();
     let [selected,setSelected]=useState(false);
      let [found,setFound]=useState(true);
-
-
-    let CallApi=(value)=>
-    {   
-        if(value.length!=0)
-        {
-            axios.get('https://jsonplaceholder.typicode.com/users')
-            .then(res=>{
-          const results = res.data.filter((user) => {
-              return (
-                value &&
-                user &&
-                user.name &&
-                user.name.toLowerCase().includes(value)
-              );
-            });
-              setResults(results)
-            //   console.log(results)
-
-        Sample()
-              
-            })
-          .catch(err=> console.log(err))   
-         
-
-        }
-        
-          
-}
-
-
-let Sample=(value)=>
+    
+let postalPincodefetch=(value)=>
     {   
         
      
@@ -91,7 +61,8 @@ let setArea=(e)=>
     let HandleChange=(value)=>
     {
          setInput(value)
-         Sample(value);
+         postalPincodefetch(value);
+         
     }
    
   return (
